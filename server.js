@@ -8,11 +8,12 @@ app.use(async(ctx, next) => {
     console.log(`Started at: ${start}`);
     await next();
     console.log('Back at top of middleware flow.')
+        //output response for viewing.
     ctx.body = {
         lat: ctx.request.lat,
         lon: ctx.request.lon,
         weather_icon: ctx.request.weather_icon,
-        weather_temp: ctx.request.temp_in_C
+        weather_temp_C: ctx.request.temp_in_C
     }
     const ms = new Date - start;
     console.log(`Method: ${ctx.method}, URL: ${ctx.url} - Elapsed: ${ms}ms`);
